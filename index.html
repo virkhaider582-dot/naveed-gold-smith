@@ -1,908 +1,1275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Naveed Gold Smith</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #faf7ef;
-            color: #222;
-        }
-
-        /* NAVIGATION */
-
-        header {
-            background: #111;
-            padding: 18px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid #d4af37;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #d4af37;
-            font-size: 27px;
-            font-weight: bold;
-            font-family: Georgia, serif;
-        }
-
-        .menu {
-            display: flex;
-            gap: 28px;
-        }
-
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .menu a:hover {
-            color: #d4af37;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 650px;
-            background: linear-gradient(
-                rgba(0,0,0,0.72),
-                rgba(0,0,0,0.72)
-            ),
-            url("shop-photo.jpg");
-
-            background-size: cover;
-            background-position: center;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-            color: white;
-            padding: 40px;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero h1 {
-            font-family: Georgia, serif;
-            font-size: 65px;
-            color: #d4af37;
-            margin-bottom: 20px;
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 19px;
-            line-height: 1.8;
-            color: #eee;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 28px;
-            background: #d4af37;
-            color: #111;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        .button:hover {
-            background: #f1d76b;
-        }
-
-        /* GENERAL */
-
-        section {
-            padding: 80px 8%;
-        }
-
-        .title {
-            text-align: center;
-            font-family: Georgia, serif;
-            font-size: 42px;
-            color: #9b7712;
-            margin-bottom: 20px;
-        }
-
-        .description {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            font-size: 18px;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        /* ABOUT */
-
-        .about-box {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-        }
-
-        .about-box p {
-            font-size: 18px;
-            line-height: 1.9;
-            margin-bottom: 20px;
-        }
-
-        .owners {
-            margin-top: 30px;
-            padding: 25px;
-            background: #fff8df;
-            border-left: 5px solid #d4af37;
-        }
-
-        .owners h3 {
-            color: #9b7712;
-            margin-bottom: 15px;
-        }
-
-        /* JEWELRY */
-
-        .cards {
-            max-width: 1150px;
-            margin: 45px auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-7px);
-        }
-
-        .jewelry-picture {
-            height: 230px;
-            background: linear-gradient(135deg, #171717, #3d3218);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 75px;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card h3 {
-            font-family: Georgia, serif;
-            font-size: 25px;
-            color: #9b7712;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            line-height: 1.7;
-            color: #555;
-        }
-
-        /* SERVICES */
-
-        .service-box {
-            max-width: 1050px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .service {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            border-top: 4px solid #d4af37;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-        }
-
-        .service h3 {
-            font-family: Georgia, serif;
-            color: #9b7712;
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
-
-        .service p {
-            line-height: 1.8;
-            color: #555;
-        }
-
-        /* CONTACT */
-
-        .contact {
-            background: #151515;
-            color: white;
-        }
-
-        .contact .title {
-            color: #d4af37;
-        }
-
-        .contact-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .contact-box {
-            background: #222;
-            padding: 35px;
-            border-radius: 12px;
-        }
-
-        .contact-box h3 {
-            color: #d4af37;
-            font-family: Georgia, serif;
-            font-size: 25px;
-            margin-bottom: 18px;
-        }
-
-        .contact-box p {
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .contact-box a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .whatsapp {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 13px 20px;
-            background: #d4af37;
-            color: #111 !important;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #090909;
-            color: #aaa;
-            text-align: center;
-            padding: 30px;
-        }
-
-        footer strong {
-            color: #d4af37;
-            font-size: 20px;
-        }
-
-        /* MOBILE */
-
-        @media(max-width: 800px) {
-
-            header {
-                padding: 15px 20px;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .menu {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero h2 {
-                font-size: 22px;
-            }
-
-            .cards,
-            .service-box,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 60px 5%;
-            }
-
-        }
-
-    </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Naveed Jewelleries | Gold & Silver Jewellery in Pindi Bhattian</title>
+
+<meta name="description"
+content="Naveed Jewelleries Pindi Bhattian - سونے اور چاندی کے زیورات، شادی بیاہ کے زیورات اور کسٹم جیولری آرڈرز۔ Gold and silver jewellery in Pindi Bhattian.">
+
+<meta name="keywords"
+content="Naveed Jewelleries, jewellery Pindi Bhattian, gold jewellery Pindi Bhattian, silver jewellery Pindi Bhattian, wedding jewellery, custom jewellery, goldsmith Pindi Bhattian">
+
+<meta name="author" content="Naveed Jewelleries">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, "Noto Nastaliq Urdu", sans-serif;
+    background:#f7f3e8;
+    color:#242424;
+}
+
+
+/* NAVBAR */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(15,15,15,0.98);
+    border-bottom:1px solid #c9a227;
+    padding:17px 6%;
+}
+
+nav{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#d4af37;
+    font-family:Georgia,serif;
+    font-size:27px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    gap:28px;
+}
+
+.menu a{
+    color:#eee;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.menu a:hover{
+    color:#d4af37;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:690px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #4b3b12 0%,
+        #211c0d 38%,
+        #090909 85%
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    padding:60px 20px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    border:1px solid rgba(212,175,55,0.25);
+
+    border-radius:50%;
+}
+
+.hero-content{
+    position:relative;
+    max-width:950px;
+}
+
+.small-heading{
+    color:#d4af37;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:72px;
+    color:#f0d77b;
+    margin-bottom:20px;
+}
+
+.hero h2{
+    color:white;
+    font-size:28px;
+    font-weight:normal;
+    margin-bottom:25px;
+}
+
+.hero p{
+    color:#ddd;
+    font-size:18px;
+    line-height:1.9;
+    max-width:780px;
+    margin:auto;
+}
+
+.hero-buttons{
+    margin-top:35px;
+}
+
+.gold-button{
+    display:inline-block;
+
+    padding:14px 30px;
+
+    background:#d4af37;
+    color:#111;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    border-radius:4px;
+    margin:7px;
+
+    transition:.3s;
+}
+
+.gold-button:hover{
+    background:#f1d978;
+    transform:translateY(-2px);
+}
+
+.dark-button{
+    display:inline-block;
+
+    padding:13px 30px;
+
+    border:1px solid #d4af37;
+
+    color:#d4af37;
+
+    text-decoration:none;
+
+    border-radius:4px;
+    margin:7px;
+}
+
+.dark-button:hover{
+    background:#d4af37;
+    color:#111;
+}
+
+
+/* GENERAL */
+
+section{
+    padding:90px 7%;
+}
+
+.section-title{
+    text-align:center;
+
+    font-family:Georgia,serif;
+
+    font-size:45px;
+
+    color:#9b7614;
+
+    margin-bottom:18px;
+}
+
+.gold-line{
+    width:75px;
+    height:3px;
+
+    background:#d4af37;
+
+    margin:0 auto 28px;
+}
+
+.section-intro{
+    max-width:850px;
+    margin:auto;
+
+    text-align:center;
+
+    font-size:20px;
+    line-height:2;
+
+    color:#555;
+}
+
+
+/* ABOUT */
+
+.about{
+    background:#fffdf7;
+}
+
+.about-container{
+    max-width:1050px;
+
+    margin:50px auto 0;
+
+    background:white;
+
+    padding:45px;
+
+    border:1px solid #e4d7a9;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.07);
+}
+
+.about-container p{
+    font-size:19px;
+    line-height:2;
+    margin-bottom:22px;
+}
+
+/* Urdu */
+
+.urdu-description{
+    direction:rtl;
+    text-align:right;
+
+    font-family:
+    "Noto Nastaliq Urdu",
+    "Jameel Noori Nastaleeq",
+    Arial,
+    sans-serif;
+
+    font-size:21px !important;
+    line-height:2.4 !important;
+
+    color:#333;
+}
+
+/* English */
+
+.english-description{
+    direction:ltr;
+    text-align:left;
+
+    font-family:Arial,sans-serif;
+
+    color:#555;
+}
+
+.owners{
+    margin-top:35px;
+
+    padding:25px;
+
+    background:#faf6e7;
+
+    border-left:4px solid #d4af37;
+}
+
+.owners h3{
+    color:#9b7614;
+
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    margin-bottom:15px;
+}
+
+.owners p{
+    margin-bottom:7px;
+}
+
+
+/* JEWELLERY */
+
+.jewellery{
+    background:#f3eee0;
+}
+
+.jewellery-grid{
+    max-width:1150px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+}
+
+.jewellery-card{
+    background:#fff;
+
+    border:1px solid #ded1a3;
+
+    transition:.3s;
+
+    overflow:hidden;
+}
+
+.jewellery-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+}
+
+.jewel-icon{
+    height:190px;
+
+    background:
+    radial-gradient(
+        circle,
+        #66521d,
+        #211c0d 70%
+    );
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:70px;
+
+    color:#d4af37;
+}
+
+.jewellery-card-content{
+    padding:28px;
+}
+
+.jewellery-card h3{
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    color:#9b7614;
+
+    margin-bottom:12px;
+}
+
+.jewellery-card p{
+    color:#666;
+
+    line-height:1.75;
+}
+
+
+/* SERVICES */
+
+.services{
+    background:#fffdf7;
+}
+
+.services-grid{
+    max-width:1100px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+}
+
+.service{
+    padding:32px;
+
+    background:white;
+
+    border:1px solid #e1d5ad;
+
+    position:relative;
+}
+
+.service:before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:5px;
+    height:100%;
+
+    background:#d4af37;
+}
+
+.service h3{
+    font-family:Georgia,serif;
+
+    color:#9b7614;
+
+    font-size:25px;
+
+    margin-bottom:12px;
+}
+
+.service p{
+    color:#606060;
+
+    line-height:1.8;
+}
+
+
+/* WHY US */
+
+.why{
+    background:
+    linear-gradient(
+        135deg,
+        #15130d,
+        #29230f
+    );
+
+    color:white;
+}
+
+.why .section-title{
+    color:#d4af37;
+}
+
+.why .section-intro{
+    color:#d4d4d4;
+}
+
+.why-grid{
+    max-width:1000px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+}
+
+.why-box{
+    text-align:center;
+
+    padding:30px 20px;
+
+    border:1px solid rgba(212,175,55,.35);
+}
+
+.why-box span{
+    font-size:40px;
+    color:#d4af37;
+}
+
+.why-box h3{
+    margin:15px 0 10px;
+
+    color:#f0d77b;
+
+    font-family:Georgia,serif;
+}
+
+.why-box p{
+    color:#ccc;
+
+    line-height:1.7;
+}
+
+
+/* CONTACT */
+
+.contact{
+    background:#f7f3e8;
+}
+
+.contact-grid{
+    max-width:1050px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+}
+
+.contact-card{
+    background:white;
+
+    padding:35px;
+
+    border:1px solid #ded1a3;
+}
+
+.contact-card h3{
+    font-family:Georgia,serif;
+
+    font-size:27px;
+
+    color:#9b7614;
+
+    margin-bottom:18px;
+}
+
+.contact-card p{
+    line-height:1.9;
+
+    color:#555;
+
+    margin-bottom:12px;
+}
+
+.contact-link{
+    color:#8c6910;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#0b0b0b;
+
+    color:#aaa;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    line-height:1.8;
+}
+
+footer strong{
+    color:#d4af37;
+
+    font-family:Georgia,serif;
+
+    font-size:23px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .menu{
+        display:none;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .jewellery-grid,
+    .services-grid,
+    .why-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-container{
+        padding:25px;
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<!-- ================= NAVIGATION ================= -->
+<!-- NAVIGATION -->
 
 <header>
 
-    <nav>
+<nav>
 
-        <div class="logo">
-            Naveed Gold Smith
-        </div>
+<div class="logo">
+Naveed Jewelleries
+</div>
 
-        <div class="menu">
+<div class="menu">
 
-            <a href="#home">Home</a>
+<a href="#home">Home</a>
 
-            <a href="#about">About</a>
+<a href="#about">About</a>
 
-            <a href="#jewelry">Jewelry</a>
+<a href="#jewellery">Jewellery</a>
 
-            <a href="#services">Services</a>
+<a href="#services">Services</a>
 
-            <a href="#contact">Contact</a>
+<a href="#contact">Contact</a>
 
-        </div>
+</div>
 
-    </nav>
+</nav>
 
 </header>
 
 
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <h1>Naveed Gold Smith</h1>
+<div class="small-heading">
+Gold • Silver • Craftsmanship
+</div>
 
-        <h2>Gold & Silver Jewelry With Trust & Craftsmanship</h2>
+<h1>
+Naveed Jewelleries
+</h1>
 
-        <p>
+<h2>
+Gold & Silver Jewellery in Pindi Bhattian
+</h2>
 
-            Welcome to Naveed Gold Smith.
+<p>
 
-            We offer beautiful gold and silver jewelry
+Discover beautiful gold and silver jewellery for
+weddings, celebrations and special occasions.
+We also discuss custom jewellery orders according
+to your requirements and preferred designs.
 
-            for weddings, family celebrations and special occasions.
+</p>
 
-            If you have a design in mind, you can also discuss
+<div class="hero-buttons">
 
-            your custom order with us.
+<a href="#jewellery" class="gold-button">
+Explore Jewellery
+</a>
 
-        </p>
+<a href="#contact" class="dark-button">
+Contact Us
+</a>
 
-        <a href="#jewelry" class="button">
-            Explore Our Jewelry
-        </a>
+</div>
 
-    </div>
-
-</section>
-
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-    <h2 class="title">
-        About Naveed Gold Smith
-    </h2>
-
-    <p class="description">
-
-        At Naveed Gold Smith, we believe that jewelry is more than
-
-        just an ornament. It becomes part of important memories,
-
-        especially weddings, celebrations and family occasions.
-
-        Our aim is to provide customers with beautiful designs,
-
-        helpful guidance and personalized service.
-
-    </p>
-
-
-    <div class="about-box">
-
-        <p>
-
-            Hamaray han <strong>sonay aur chandi ke tamam zaivrat</strong>
-
-            dastiyab hain. Shadi byah aur doosri khaas taqreebat ke liye
-
-            jis cheez ka order ho, us ke design aur requirements par
-
-            baat karke jewelry tayar karne ki koshish ki ja sakti hai.
-
-        </p>
-
-        <p>
-
-            Agar aap ke paas kisi jewelry ka apna design ya idea hai,
-
-            to woh hamaray saath share karein aur apni zaroorat ke mutabiq
-
-            order discuss karein.
-
-        </p>
-
-
-        <div class="owners">
-
-            <h3>Proprietors</h3>
-
-            <p>
-                <strong>Naveed Azam Virk</strong>
-            </p>
-
-            <p>
-                <strong>Hasnain Haider Virk</strong>
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- ================= JEWELRY ================= -->
+<!-- ABOUT -->
 
-<section id="jewelry">
+<section class="about" id="about">
 
-    <h2 class="title">
-        Our Jewelry
-    </h2>
+<h2 class="section-title">
+ہمارے بارے میں
+</h2>
 
-    <p class="description">
+<div class="gold-line"></div>
 
-        Explore different types of jewelry available at our shop.
 
-        Designs and availability may vary, so please contact or visit
+<p class="section-intro urdu-description">
 
-        the shop for current details.
+نوید جیولریز پنڈی بھٹیاں میں سونے اور چاندی کے خوبصورت
+زیورات فراہم کرنے والی ایک مقامی جیولری شاپ ہے۔
+ہمارے ہاں شادی بیاہ، خوشی کی تقریبات اور دیگر خاص مواقع
+کے لیے مختلف اقسام کے زیورات دستیاب ہیں۔
 
-    </p>
+</p>
 
 
-    <div class="cards">
+<div class="about-container">
 
 
-        <div class="card">
+<p class="urdu-description">
 
-            <div class="jewelry-picture">
-                💍
-            </div>
+<strong>Naveed Jewelleries</strong> میں سونے اور چاندی کے
+مختلف زیورات دستیاب ہیں۔ شادی بیاہ اور دیگر خاص مواقع کے
+لیے آپ اپنی پسند کے زیورات کا آرڈر بھی دے سکتے ہیں۔
 
-            <div class="card-content">
+</p>
 
-                <h3>Gold Rings</h3>
 
-                <p>
+<p class="urdu-description">
 
-                    Elegant gold rings for weddings, gifts,
+اگر آپ کے ذہن میں کسی خاص زیور کا ڈیزائن یا آئیڈیا ہے تو
+آپ ہماری دکان پر آ کر اپنی ضرورت بتا سکتے ہیں۔
+آپ کی پسند اور ضرورت کے مطابق آرڈر پر زیورات تیار کرنے
+کے بارے میں بات کی جا سکتی ہے۔
 
-                    celebrations and everyday occasions.
+</p>
 
-                </p>
 
-            </div>
+<!-- ENGLISH DESCRIPTION -->
 
-        </div>
+<p class="english-description">
 
+<strong>Naveed Jewelleries</strong> is a local jewellery shop
+in Pindi Bhattian offering gold and silver jewellery for
+weddings, celebrations, gifts and special occasions.
 
+Customers can also discuss their preferred designs and
+custom jewellery orders according to their requirements.
 
-        <div class="card">
+</p>
 
-            <div class="jewelry-picture">
-                📿
-            </div>
 
-            <div class="card-content">
+<div class="owners">
 
-                <h3>Gold Jewelry</h3>
+<h3>
+Proprietors
+</h3>
 
-                <p>
+<p>
+<strong>Naveed Azam Virk</strong>
+</p>
 
-                    Beautiful gold jewelry designs for special
+<p>
+<strong>Hasnain Haider Virk</strong>
+</p>
 
-                    occasions and family celebrations.
+<p>
+<strong>Saeed Azam Virk</strong>
+</p>
 
-                </p>
+</div>
 
-            </div>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="jewelry-picture">
-                ✨
-            </div>
-
-            <div class="card-content">
-
-                <h3>Silver Jewelry</h3>
-
-                <p>
-
-                    Silver jewelry and ornaments are also available
-
-                    for different styles and occasions.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="jewelry-picture">
-                💎
-            </div>
-
-            <div class="card-content">
-
-                <h3>Wedding Jewelry</h3>
-
-                <p>
-
-                    Discuss your wedding jewelry requirements
-
-                    and the pieces you need for your special day.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="jewelry-picture">
-                👑
-            </div>
-
-            <div class="card-content">
-
-                <h3>Custom Designs</h3>
-
-                <p>
-
-                    Have a particular design in mind?
-
-                    Bring your idea and discuss your custom order
-
-                    with us.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="jewelry-picture">
-                💫
-            </div>
-
-            <div class="card-content">
-
-                <h3>Special Orders</h3>
-
-                <p>
-
-                    For special occasions, tell us what you need
-
-                    and discuss the required design and order.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- ================= SERVICES ================= -->
+<!-- JEWELLERY -->
 
-<section id="services">
+<section class="jewellery" id="jewellery">
 
-    <h2 class="title">
-        Our Services
-    </h2>
+<h2 class="section-title">
+Our Jewellery
+</h2>
 
-    <p class="description">
+<div class="gold-line"></div>
 
-        From selecting jewelry to discussing a custom design,
+<p class="section-intro">
 
-        we are here to understand what you need.
+Explore our jewellery categories and discuss your
+preferred design or requirements with us.
 
-    </p>
-
-
-    <div class="service-box">
+</p>
 
 
-        <div class="service">
-
-            <h3>Wedding Orders</h3>
-
-            <p>
-
-                Shadi byah ke liye jis qisam ki jewelry chahiye,
-
-                aap apni requirements aur design discuss kar sakte hain.
-
-            </p>
-
-        </div>
+<div class="jewellery-grid">
 
 
+<div class="jewellery-card">
 
-        <div class="service">
+<div class="jewel-icon">
+💍
+</div>
 
-            <h3>Custom Jewelry</h3>
+<div class="jewellery-card-content">
 
-            <p>
+<h3>
+Gold Rings
+</h3>
 
-                Agar aap ke paas apna koi design ya idea hai,
+<p>
 
-                to shop par aa kar us ke baare mein baat karein
+Elegant gold rings suitable for weddings,
+gifts, celebrations and special occasions.
 
-                aur apna order discuss karein.
+</p>
 
-            </p>
+</div>
 
-        </div>
+</div>
 
 
 
-        <div class="service">
+<div class="jewellery-card">
 
-            <h3>Gold Jewelry</h3>
+<div class="jewel-icon">
+📿
+</div>
 
-            <p>
+<div class="jewellery-card-content">
 
-                Gold jewelry ke mukhtalif designs aur pieces
+<h3>
+Gold Jewellery
+</h3>
 
-                available hain. Current designs aur details ke liye
+<p>
 
-                shop par rabta karein.
+Beautiful gold jewellery for customers looking
+for traditional and elegant designs.
 
-            </p>
+</p>
 
-        </div>
+</div>
 
-
-
-        <div class="service">
-
-            <h3>Silver Jewelry</h3>
-
-            <p>
-
-                Gold ke saath silver ke zaivrat bhi dastiyab hain.
-
-                Apni pasand aur occasion ke mutabiq options
-
-                ke baare mein maloom karein.
-
-            </p>
-
-        </div>
+</div>
 
 
-    </div>
+
+<div class="jewellery-card">
+
+<div class="jewel-icon">
+✨
+</div>
+
+<div class="jewellery-card-content">
+
+<h3>
+Silver Jewellery
+</h3>
+
+<p>
+
+Silver jewellery for different occasions,
+preferences and styles.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="jewellery-card">
+
+<div class="jewel-icon">
+👑
+</div>
+
+<div class="jewellery-card-content">
+
+<h3>
+Wedding Jewellery
+</h3>
+
+<p>
+
+Discuss your wedding jewellery requirements
+and the pieces you need for your special day.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="jewellery-card">
+
+<div class="jewel-icon">
+💎
+</div>
+
+<div class="jewellery-card-content">
+
+<h3>
+Custom Designs
+</h3>
+
+<p>
+
+Have your own design or idea?
+Discuss your requirements with us
+for a custom jewellery order.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="jewellery-card">
+
+<div class="jewel-icon">
+🏵️
+</div>
+
+<div class="jewellery-card-content">
+
+<h3>
+Special Orders
+</h3>
+
+<p>
+
+Tell us what you need for your special
+occasion and discuss your order with us.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
 
 </section>
 
 
 
-<!-- ================= CONTACT ================= -->
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<h2 class="section-title">
+What We Offer
+</h2>
+
+<div class="gold-line"></div>
+
+<p class="section-intro">
+
+From everyday jewellery to wedding requirements,
+we aim to help customers find or discuss the jewellery
+they are looking for.
+
+</p>
+
+
+<div class="services-grid">
+
+
+<div class="service">
+
+<h3>
+Gold Jewellery
+</h3>
+
+<p>
+
+Gold jewellery and different designs for weddings,
+gifts, celebrations and other occasions.
+
+</p>
+
+</div>
+
+
+
+<div class="service">
+
+<h3>
+Silver Jewellery
+</h3>
+
+<p>
+
+Silver jewellery is also available for customers
+looking for beautiful silver ornaments.
+
+</p>
+
+</div>
+
+
+
+<div class="service">
+
+<h3>
+Wedding Orders
+</h3>
+
+<p>
+
+Wedding jewellery requirements can be discussed
+according to your occasion and preferred designs.
+
+</p>
+
+</div>
+
+
+
+<div class="service">
+
+<h3>
+Custom Jewellery
+</h3>
+
+<p>
+
+If you have a particular jewellery design in mind,
+contact us and discuss your custom order.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- WHY US -->
+
+<section class="why">
+
+<h2 class="section-title">
+Why Visit Us?
+</h2>
+
+<div class="gold-line"></div>
+
+<p class="section-intro">
+
+A local jewellery shop serving customers in
+Pindi Bhattian and surrounding areas.
+
+</p>
+
+
+<div class="why-grid">
+
+
+<div class="why-box">
+
+<span>◆</span>
+
+<h3>
+Gold & Silver
+</h3>
+
+<p>
+Jewellery options for different occasions.
+</p>
+
+</div>
+
+
+
+<div class="why-box">
+
+<span>✦</span>
+
+<h3>
+Custom Orders
+</h3>
+
+<p>
+Discuss your preferred design and requirements.
+</p>
+
+</div>
+
+
+
+<div class="why-box">
+
+<span>◈</span>
+
+<h3>
+Local Shop
+</h3>
+
+<p>
+Conveniently located near Main Bazar, Pindi Bhattian.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
-    <h2 class="title">
-        Contact & Visit Us
-    </h2>
+<h2 class="section-title">
+Contact Naveed Jewelleries
+</h2>
 
-    <p class="description" style="color:#ccc;">
+<div class="gold-line"></div>
 
-        We would be happy to discuss your jewelry requirements.
+<p class="section-intro">
 
-        Contact us or visit our shop in Pindi Bhattian.
+For jewellery information, wedding orders or custom
+designs, contact us or visit our shop.
 
-    </p>
-
-
-    <div class="contact-container">
+</p>
 
 
-        <div class="contact-box">
-
-            <h3>Shop Location</h3>
-
-            <p>
-
-                📍 In the front of Sarafa Bazar,
-
-                near Main Bazar,
-
-                Pindi Bhattian
-
-            </p>
+<div class="contact-grid">
 
 
-            <h3>Phone / WhatsApp</h3>
+<div class="contact-card">
 
-            <p>
+<h3>
+Visit Our Shop
+</h3>
 
-                📞
+<p>
 
-                <a href="tel:03087126510">
+📍 In front of Sarafa Bazar,
+near Main Bazar,
+Pindi Bhattian
 
-                    03087126510
+</p>
 
-                </a>
+<p>
 
-            </p>
+Our location is convenient for customers
+visiting the Sarafa Bazar and Main Bazar area.
 
+</p>
 
-            <a
-
-                class="whatsapp"
-
-                href="https://wa.me/923087126510"
-
-                target="_blank">
-
-                WhatsApp Us
-
-            </a>
-
-        </div>
+</div>
 
 
 
-        <div class="contact-box">
+<div class="contact-card">
 
-            <h3>Proprietors</h3>
+<h3>
+Call or WhatsApp
+</h3>
 
-            <p>
+<p>
 
-                <strong>
+📞 Phone:
 
-                    Naveed Azam Virk
+<a class="contact-link"
+href="tel:03087126510">
 
-                </strong>
+03087126510
 
-            </p>
+</a>
 
-            <p>
-
-                <strong>
-
-                    Hasnain Haider Virk
-
-                </strong>
-
-            </p>
+</p>
 
 
-            <p>
+<p>
 
-                Gold aur silver jewelry,
+💬 WhatsApp:
 
-                wedding orders aur custom designs
+<a class="contact-link"
+href="https://wa.me/923087126510"
+target="_blank">
 
-                ke liye hum se rabta karein.
+03087126510
 
-            </p>
+</a>
 
-        </div>
+</p>
 
 
-    </div>
+<a href="https://wa.me/923087126510"
+target="_blank"
+class="gold-button">
+
+Message on WhatsApp
+
+</a>
+
+</div>
+
+
+</div>
 
 </section>
 
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
-    <strong>
-        Naveed Gold Smith
-    </strong>
+<strong>
+Naveed Jewelleries
+</strong>
 
-    <br><br>
+<br>
 
-    Gold & Silver Jewelry
+Gold & Silver Jewellery
 
-    <br>
+<br>
 
-    In the front of Sarafa Bazar,
+In front of Sarafa Bazar,
+near Main Bazar, Pindi Bhattian
 
-    near Main Bazar, Pindi Bhattian
+<br>
 
-    <br>
+Phone / WhatsApp:
+03087126510
 
-    Phone / WhatsApp:
+<br><br>
 
-    03087126510
+© 2026 Naveed Jewelleries.
+All rights reserved.
 
 </footer>
 
 
 </body>
+
 </html>
